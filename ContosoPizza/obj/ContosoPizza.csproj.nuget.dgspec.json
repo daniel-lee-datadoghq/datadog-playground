@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/daniel.lee/DDrepos/datadog-playground/ContosoPizza/ContosoPizza.csproj": {}
+    "C:\\Users\\pogod\\ContosoPizza\\ContosoPizza.csproj": {}
   },
   "projects": {
-    "/Users/daniel.lee/DDrepos/datadog-playground/ContosoPizza/ContosoPizza.csproj": {
+    "C:\\Users\\pogod\\ContosoPizza\\ContosoPizza.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/daniel.lee/DDrepos/datadog-playground/ContosoPizza/ContosoPizza.csproj",
+        "projectUniqueName": "C:\\Users\\pogod\\ContosoPizza\\ContosoPizza.csproj",
         "projectName": "ContosoPizza",
-        "projectPath": "/Users/daniel.lee/DDrepos/datadog-playground/ContosoPizza/ContosoPizza.csproj",
-        "packagesPath": "/Users/daniel.lee/.nuget/packages/",
-        "outputPath": "/Users/daniel.lee/DDrepos/datadog-playground/ContosoPizza/obj/",
+        "projectPath": "C:\\Users\\pogod\\ContosoPizza\\ContosoPizza.csproj",
+        "packagesPath": "C:\\Users\\pogod\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pogod\\ContosoPizza\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/daniel.lee/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pogod\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -62,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

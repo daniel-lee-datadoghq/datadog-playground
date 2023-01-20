@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:15670",
-      "sslPort": 44318
+      "applicationUrl": "http://localhost:29307",
+      "sslPort": 44385
     }
   },
   "profiles": {
@@ -14,9 +14,16 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7254;http://localhost:5054",
+      "applicationUrl": "https://localhost:7107;http://localhost:5104",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "CORECLR_ENABLE_PROFILING": "1",
+        "CORECLR_PROFILER": "{846F5F1C-F9AE-4B07-969E-05C26BC060D8}",
+        "COR_ENABLE_PROFILING": "1",
+        "COR_PROFILER": "{846F5F1C-F9AE-4B07-969E-05C26BC060D8}",
+        "DD_ENV": "dev-dotnet",
+        "DD_VERSION": "1.0.0",
+        "DD_LOGS_INJECTION": "true"
       }
     },
     "IIS Express": {
