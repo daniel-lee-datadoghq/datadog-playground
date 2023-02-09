@@ -25,3 +25,7 @@ C:\Users\pogod\ContosoPizza\obj\Debug\net6.0\refint\ContosoPizza.dll
 C:\Users\pogod\ContosoPizza\obj\Debug\net6.0\ContosoPizza.pdb
 C:\Users\pogod\ContosoPizza\obj\Debug\net6.0\ContosoPizza.genruntimeconfig.cache
 C:\Users\pogod\ContosoPizza\obj\Debug\net6.0\ref\ContosoPizza.dll
+C:\Users\pogod\ContosoPizza\bin\Debug\net6.0\Serilog.dll
+C:\Users\pogod\ContosoPizza\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\Users\pogod\ContosoPizza\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\Users\pogod\ContosoPizza\bin\Debug\net6.0\log.json

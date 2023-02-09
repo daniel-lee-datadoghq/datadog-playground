@@ -8,10 +8,13 @@ namespace ContosoPizza.Controllers;
 [Route("[controller]")]
 public class PizzaController : ControllerBase
 {
-    public PizzaController()
-    {
-    }
+    private readonly ILogger<PizzaController> _logger;
 
+    public PizzaController(ILogger<PizzaController> logger)
+    {
+        _logger = logger;
+    }
+    
     // GET all action
     [HttpGet]
     public ActionResult<List<Pizza>> GetAll() =>
@@ -25,7 +28,9 @@ public class PizzaController : ControllerBase
 
         if(pizza == null)
             return NotFound();
-
+        
+        _logger.LogInformation("Pizza Returned: {@PizzaName} --> {@PizzaId}", pizza.Name, pizza.Id); 
+        
         return pizza;
     }
 
@@ -34,6 +39,9 @@ public class PizzaController : ControllerBase
     public IActionResult Create(Pizza pizza)
     {            
         PizzaService.Add(pizza);
+
+        _logger.LogInformation("Pizza Added: {@PizzaName} --> {@PizzaId}", pizza.Name, pizza.Id); 
+
         return CreatedAtAction(nameof(Get), new { id = pizza.Id }, pizza);
     }
 
@@ -48,7 +56,9 @@ public class PizzaController : ControllerBase
         if(existingPizza is null)
             return NotFound();
     
-        PizzaService.Update(pizza);           
+        PizzaService.Update(pizza);    
+
+        _logger.LogInformation("Pizza Updated: {@PizzaName} --> {@PizzaId}", pizza.Name, pizza.Id);        
     
         return NoContent();
     }
@@ -63,6 +73,8 @@ public class PizzaController : ControllerBase
             return NotFound();
         
         PizzaService.Delete(id);
+
+        _logger.LogInformation("Pizza Deleted: {@PizzaName} --> {@PizzaId}", pizza.Name, pizza.Id); 
     
         return NoContent();
     }

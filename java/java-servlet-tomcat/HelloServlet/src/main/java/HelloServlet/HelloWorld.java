@@ -7,6 +7,7 @@ package HelloServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author daniel.lee
  */
+@WebServlet(name = "HelloWorld", urlPatterns = {"/HelloWorld"})
 public class HelloWorld extends HttpServlet {
 
     /**
@@ -37,7 +39,7 @@ public class HelloWorld extends HttpServlet {
             out.println("<title>Servlet HelloWorld</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Hello World Test!</h1>");
+            out.println("<h1>Servlet HelloWorld at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
