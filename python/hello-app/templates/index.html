@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+  (function(h,o,u,n,d) {
+    h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+    d=o.createElement(u);d.async=1;d.src=n
+    n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+  })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
+  DD_RUM.onReady(function() {
+    DD_RUM.init({
+      clientToken: 'pub0e4fe127075a225473b29a41f4691d00',
+      applicationId: '68708af2-7877-49e6-9c8e-1ba471dc96a1',
+      site: 'datadoghq.com',
+      service: 'test-python-web-app',
+      env: 'dev3',
+      // Specify a version number to identify the deployed version of your application in Datadog 
+      // version: '1.0.0',
+      sessionSampleRate: 100,
+      sessionReplaySampleRate: 100,
+      trackUserInteractions: true,
+      trackResources: true,
+      trackLongTasks: true,
+      defaultPrivacyLevel: 'mask-user-input',
+    });
+
+    DD_RUM.startSessionReplayRecording();
+  })
+</script>
+</head>
+<body>
+
+<form action="" method="get">
+  Celsius temperature: <input type="text" name="celsius">
+  <input type="submit" value="Convert to Fahrenheit">
+</form>
+
+</body>
+</html>
