@@ -16,6 +16,10 @@ def index():
         + fahrenheit
     )
 
+@app.route('/hello_world')
+def hello_world():
+    return 'Hello world!', 200
+
 def fahrenheit_from(celsius):
     """Convert Celsius to Fahrenheit degrees."""
     try:
