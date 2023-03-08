@@ -1,0 +1,2 @@
+{"dd":{"env":"dev-3","service":"nodejs-sample-app","span_id":"1623270898996318908","trace_id":"1623270898996318908","version":"1.0.0"},"level":"info","message":"Log - Hello World"}
+{"dd":{"env":"dev-3","service":"nodejs-sample-app","span_id":"477379977921866278","trace_id":"477379977921866278","version":"1.0.0"},"level":"info","message":"Log - Hello World"}
