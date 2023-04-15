@@ -1,0 +1,9 @@
+<form>
+    <input name="person_id" type="hidden" value="{{ person.id }}" />
+    <label>
+        <span>Note</span>
+        <input name="content" type="text" value="" />
+    </label>
+    <button data-action="create" id="create_note" onclick="create_custom_view(this.id)">✨ Create Note</button>
+    <!-- <button data-action="create">✨ Create Note</button> -->
+</form>
