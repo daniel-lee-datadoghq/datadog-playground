@@ -21,10 +21,10 @@
       	    clientToken: 'pubd8054f74ca2d63bd32da53d69aca5951',
       	    applicationId: '6759a475-0d85-4871-9759-9d639a71087b',
       	    site: 'datadoghq.com',
-      	    service: 'full-stack-python-test-app-2',
+      	    service: 'full-stack-python-test-app',
       	    env: 'dev-python-2',
       	    // Specify a version number to identify the deployed version of your application in Datadog
-      	    version: '1.0.1',
+      	    version: '1.0.0',
       	    sessionSampleRate: 100,
       	    sessionReplaySampleRate: 100,
       	    trackUserInteractions: true,
@@ -32,17 +32,17 @@
       	    trackLongTasks: true,
       	    defaultPrivacyLevel: 'mask-user-input',
             allowedTracingUrls: ["http://172.29.146.46:8000"],
-	    // for testing
-	    // allowedTracingUrls: ["create_person"],
+	        // for testing
+	        // allowedTracingUrls: ["create_person"],
             traceSampleRate: 100,
-	    // for testing
-	    trackViewsManually: true,
+            // for testing
+            trackViewsManually: true,
     	  });
 
     	  DD_RUM.startSessionReplayRecording();
   	})
     </script>
-    // for testing
+    <!-- for testing -->
     <script>
         function create_custom_view(v) {
             data_action = v
@@ -50,7 +50,7 @@
             DD_RUM.onReady(function() {
                 DD_RUM.startView({
                     name: data_action,
-                    service: 'full-stack-python-test-app-2',
+                    service: 'full-stack-python-test-app',
                     version: '1.0.1'
                 });
             })
