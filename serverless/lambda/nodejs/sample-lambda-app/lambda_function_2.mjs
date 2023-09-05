@@ -8,7 +8,7 @@ export const handler = async function(event, context) {
   var connection = mysql.createConnection({
     host     : 'daniel-mysqlforlambda.c7ug0vvtkhqv.us-east-1.rds.amazonaws.com',
     user     : 'admin',
-    password : 'Daniel123',
+    password : '<my_pass_word>',
     database : 'DanielExampleDB'
   });
 
