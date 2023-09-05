@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnetmysql
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: dotnetmysql
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: dotnetmysql
+    spec:
+      containers:
+      - name: dotnetmysql
+        image: daniellee19900407/dotnetmysql:latest
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnetmysql
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app.kubernetes.io/name: dotnetmysql
