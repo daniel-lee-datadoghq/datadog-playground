@@ -1,16 +1,35 @@
 import mysql from 'mysql';
 
+var connection = mysql.createConnection({
+    host     : 'daniel-mysqlforlambda.c7ug0vvtkhqv.us-east-1.rds.amazonaws.com',
+    user     : 'admin',
+    password : '<my_password>',
+    database : 'DanielExampleDB'
+});
+
+function isJSON(str) {
+    try {
+        return JSON.parse(str) && !!str;
+    } catch (e) {
+        return false;
+    }
+}
+
+function InsertNewMessage(message_id, message){
+    return new Promise((resolve, reject)=>{
+        connection.query(`INSERT INTO Message (MessageId, Message) VALUES ('${message_id}', '${message}')`,  (error, elements)=>{
+            if(error){
+                return reject(error);
+            }
+            return resolve(elements);
+        });
+    });
+};
+
 export const handler = async function(event, context) {
   
   var message;
   var message_id;
-
-  var connection = mysql.createConnection({
-    host     : 'daniel-mysqlforlambda.c7ug0vvtkhqv.us-east-1.rds.amazonaws.com',
-    user     : 'admin',
-    password : '<my_pass_word>',
-    database : 'DanielExampleDB'
-  });
 
   event.Records.forEach(record => {
     
@@ -29,22 +48,14 @@ export const handler = async function(event, context) {
     
   });
   
-  await new Promise(function (resolve, reject) {
-    connection.query(`INSERT INTO Message (MessageId, Message) VALUES ('${message_id}', '${message}')`, function (error, results, fields) {
-      if (error) throw error;
-      console.log(`INSERT SUCCESSFUL: \nMessageId: '${message_id}' \nMessage: '${message}'`);
-      connection.end();
-    });
-  });
+  try {
+  const result = await InsertNewMessage(message_id, message);
+  // here you can do something with the three results
+  
+  } catch(error){
+    console.log(error);
+  }
   
   return {};
   
-}
-
-function isJSON(str) {
-    try {
-        return JSON.parse(str) && !!str;
-    } catch (e) {
-        return false;
-    }
 }
