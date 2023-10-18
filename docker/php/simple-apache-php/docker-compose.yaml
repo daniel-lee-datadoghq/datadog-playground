@@ -1,0 +1,23 @@
+version: '3'
+services:
+  simple-php:
+    build: 
+      context: .
+    ports:
+      - '8080:80'
+    volumes:
+      - ./app:/var/www/html/
+      - ./apache/000-default.conf:/etc/apache2/sites-available/000-default.conf 
+    container_name: simple-php
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - DD_AGENT_HOST=host.docker.internal
+      - DD_TRACE_DEBUG=false
+      - DD_TRACE_AGENT_PORT=8126
+      - DD_SERVICE=php_app
+      - DD_ENV=php
+    labels:
+      com.datadoghq.tags.service: 'php_app'
+      com.datadoghq.tags.version: '1.0.0'
+      com.datadoghq.tags.env: 'php'  
