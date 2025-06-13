@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: payroll-service
+  labels:
+    name: payroll-daniel-service
+    app: payroll-app
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30081
+  selector:
+    name: payroll-pod
+    app: payroll-app
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payroll-deploy
+  labels:
+    name: payroll-deploy
+    app: payroll-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: payroll-pod
+      app: payroll-app
+  template:
+    metadata:
+      name: payroll-pod
+      labels:
+        name: payroll-pod
+        app: payroll-app
+    spec:
+      containers:
+        - name: payroll-app
+          image: daniellee19900407/payroll-log4j2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
