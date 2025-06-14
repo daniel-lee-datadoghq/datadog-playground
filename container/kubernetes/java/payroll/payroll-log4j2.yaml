@@ -35,6 +35,8 @@ spec:
       labels:
         name: payroll-pod
         app: payroll-app
+      annotations:
+        ad.datadoghq.com/payroll-app.logs: '[{"source":"java", "service":"payroll", "tags":["foo:bar"]}]'
     spec:
       containers:
         - name: payroll-app

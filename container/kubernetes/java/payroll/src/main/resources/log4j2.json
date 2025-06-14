@@ -1,0 +1,29 @@
+{
+  "Configuration": {
+    "status": "WARN",
+    "monitorInterval": 30,
+    "Appenders": {
+      "Console": {
+        "name": "Console",
+        "target": "SYSTEM_OUT",
+        "JsonTemplateLayout": {
+          "eventTemplateUri": "classpath:log-template.json"
+        }
+      }
+    },
+    "Loggers": {
+      "Logger": {
+        "name": "com.example",
+        "level": "DEBUG",
+        "additivity": false,
+        "AppenderRef": {"ref": "Console"}
+      },
+      "Root": {
+        "level": "INFO",
+        "AppenderRef": [
+          {"ref": "Console"}
+        ]
+      }
+    }
+  }
+}
