@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pogod\\ContosoPizza\\ContosoPizza.csproj": {}
+    "/Users/daniel.lee/DDrepos/datadog-playground/dotnet/ContosoPizza/ContosoPizza.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pogod\\ContosoPizza\\ContosoPizza.csproj": {
+    "/Users/daniel.lee/DDrepos/datadog-playground/dotnet/ContosoPizza/ContosoPizza.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pogod\\ContosoPizza\\ContosoPizza.csproj",
+        "projectUniqueName": "/Users/daniel.lee/DDrepos/datadog-playground/dotnet/ContosoPizza/ContosoPizza.csproj",
         "projectName": "ContosoPizza",
-        "projectPath": "C:\\Users\\pogod\\ContosoPizza\\ContosoPizza.csproj",
-        "packagesPath": "C:\\Users\\pogod\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pogod\\ContosoPizza\\obj\\",
+        "projectPath": "/Users/daniel.lee/DDrepos/datadog-playground/dotnet/ContosoPizza/ContosoPizza.csproj",
+        "packagesPath": "/Users/daniel.lee/.nuget/packages/",
+        "outputPath": "/Users/daniel.lee/DDrepos/datadog-playground/dotnet/ContosoPizza/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pogod\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/daniel.lee/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.nuget.org/api/v2": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -67,6 +66,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.21, 6.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[6.0.21, 6.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.21, 6.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -75,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }

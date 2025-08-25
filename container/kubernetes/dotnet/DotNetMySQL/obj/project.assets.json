@@ -1953,11 +1953,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/daniel.lee/Documents/Lab/container/sandbox/aks/DotNetMySQL/DotNetMySQL.csproj",
+      "projectUniqueName": "/Users/daniel.lee/DDrepos/datadog-playground/container/kubernetes/dotnet/DotNetMySQL/DotNetMySQL.csproj",
       "projectName": "DotNetMySQL",
-      "projectPath": "/Users/daniel.lee/Documents/Lab/container/sandbox/aks/DotNetMySQL/DotNetMySQL.csproj",
+      "projectPath": "/Users/daniel.lee/DDrepos/datadog-playground/container/kubernetes/dotnet/DotNetMySQL/DotNetMySQL.csproj",
       "packagesPath": "/Users/daniel.lee/.nuget/packages/",
-      "outputPath": "/Users/daniel.lee/Documents/Lab/container/sandbox/aks/DotNetMySQL/obj/",
+      "outputPath": "/Users/daniel.lee/DDrepos/datadog-playground/container/kubernetes/dotnet/DotNetMySQL/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/daniel.lee/.nuget/NuGet/NuGet.Config"

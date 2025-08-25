@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{71E6E750-85FD-B5BC-4321-E01377EC6231}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "container", "container", "{7BCD8C0B-3131-16E0-C152-9A77E8FF55AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoPizza", "dotnet\ContosoPizza\ContosoPizza.csproj", "{1BF8C2D3-16B3-8B05-F8E4-2F74CD4FBA0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "kubernetes", "kubernetes", "{4FFC1577-D25B-DC75-405B-D8793BC4ABF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{0AA25409-F1B2-B3BA-0753-F63664C9BF94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetMySQL", "container\kubernetes\dotnet\DotNetMySQL\DotNetMySQL.csproj", "{F42A51A5-C945-0298-9C6D-5831F00D0D17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BF8C2D3-16B3-8B05-F8E4-2F74CD4FBA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF8C2D3-16B3-8B05-F8E4-2F74CD4FBA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF8C2D3-16B3-8B05-F8E4-2F74CD4FBA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF8C2D3-16B3-8B05-F8E4-2F74CD4FBA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42A51A5-C945-0298-9C6D-5831F00D0D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42A51A5-C945-0298-9C6D-5831F00D0D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42A51A5-C945-0298-9C6D-5831F00D0D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42A51A5-C945-0298-9C6D-5831F00D0D17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1BF8C2D3-16B3-8B05-F8E4-2F74CD4FBA0C} = {71E6E750-85FD-B5BC-4321-E01377EC6231}
+		{4FFC1577-D25B-DC75-405B-D8793BC4ABF1} = {7BCD8C0B-3131-16E0-C152-9A77E8FF55AD}
+		{0AA25409-F1B2-B3BA-0753-F63664C9BF94} = {4FFC1577-D25B-DC75-405B-D8793BC4ABF1}
+		{F42A51A5-C945-0298-9C6D-5831F00D0D17} = {0AA25409-F1B2-B3BA-0753-F63664C9BF94}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C304FCD3-D10A-4EED-B169-41F3A2BD84EA}
+	EndGlobalSection
+EndGlobal

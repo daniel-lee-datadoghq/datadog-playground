@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6pL2oBP3m6Yske1d3kXiOSCHZs5tzZDgU578cvkvoHdsclMNyvpVFTsQlZP1M/NBLKteb+QHuVO59wzU5p5UVg==",
+  "dgSpecHash": "Hld9kXPm0jB+F7AHPyN6QBLW0lSjdcsVcrnI9p89rJsj4ZHOg51Hv4bLHzh6sSC7C8V7vsaBAB/n5PlMfdoCkw==",
   "success": true,
-  "projectFilePath": "/Users/daniel.lee/Documents/Lab/container/sandbox/aks/DotNetMySQL/DotNetMySQL.csproj",
+  "projectFilePath": "/Users/daniel.lee/DDrepos/datadog-playground/container/kubernetes/dotnet/DotNetMySQL/DotNetMySQL.csproj",
   "expectedPackageFiles": [
     "/Users/daniel.lee/.nuget/packages/google.protobuf/3.21.9/google.protobuf.3.21.9.nupkg.sha512",
     "/Users/daniel.lee/.nuget/packages/k4os.compression.lz4/1.3.5/k4os.compression.lz4.1.3.5.nupkg.sha512",
