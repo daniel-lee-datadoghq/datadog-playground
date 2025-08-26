@@ -1,10 +1,25 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:datadog_flutter_plugin/datadog_flutter_plugin.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() async {
+    final configuration = DatadogConfiguration(
+      clientToken: 'pubdf40f0e4bfbaf200c692573fe41b940f',
+      env: 'test',
+      site: DatadogSite.us1,
+      nativeCrashReportEnabled: true,
+      loggingConfiguration: DatadogLoggingConfiguration(),
+      rumConfiguration: DatadogRumConfiguration(
+        applicationId: '8d119bab-7b49-49f8-85cd-4a3d18330990',
+        sessionSamplingRate: 100.0,
+      ),
+    );
+
+    await DatadogSdk.runApp(configuration, TrackingConsent.granted, () async {
+      runApp(MyApp());
+    });
+  }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,6 +34,9 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         ),
         home: MyHomePage(),
+        navigatorObservers: [
+          DatadogNavigationObserver(datadogSdk: DatadogSdk.instance),
+        ],
       ),
     );
   }
@@ -27,11 +45,13 @@ class MyApp extends StatelessWidget {
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
 
+  // ↓ Add this.
   void getNext() {
     current = WordPair.random();
     notifyListeners();
   }
 
+  // ↓ Add the code below.
   var favorites = <WordPair>[];
 
   void toggleFavorite() {
@@ -50,7 +70,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var selectedIndex = 0;
+
+  var selectedIndex = 0;     // ← Add this property.
 
   @override
   Widget build(BuildContext context) {
@@ -58,45 +79,53 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (selectedIndex) {
       case 0:
         page = GeneratorPage();
+        break;
       case 1:
         page = FavoritesPage();
+        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
-
+    
     return LayoutBuilder(
       builder: (context, constraints) {
-        return Scaffold(
-          body: Row(
-            children: [
-              SafeArea(
-                child: NavigationRail(
-                  extended: constraints.maxWidth >= 600,
-                  destinations: [
-                    NavigationRailDestination(
-                      icon: Icon(Icons.home),
-                      label: Text('Home'),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Icons.favorite),
-                      label: Text('Favorites'),
-                    ),
-                  ],
-                  selectedIndex: selectedIndex,
-                  onDestinationSelected: (value) {
-                    setState(() {
-                      selectedIndex = value;
-                    });
-                  },
+        return RumUserActionDetector(
+          rum: DatadogSdk.instance.rum,
+          child: Scaffold(
+            body: Row(
+              children: [
+                SafeArea(
+                  child: NavigationRail(
+                    extended: constraints.maxWidth >= 600,  // ← Here.
+                    destinations: [
+                      NavigationRailDestination(
+                        icon: Icon(Icons.home),
+                        label: Text('Home'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.favorite),
+                        label: Text('Favorites'),
+                      ),
+                    ],
+                    selectedIndex: selectedIndex,    // ← Change to this.
+                    onDestinationSelected: (value) {
+                      
+                      // ↓ Replace print with this.
+                      setState(() {
+                        selectedIndex = value;
+                      });
+
+                    },
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                  child: page,
+                Expanded(
+                  child: Container(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    child: page,  // ← Here.
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
@@ -149,13 +178,17 @@ class GeneratorPage extends StatelessWidget {
 }
 
 class BigCard extends StatelessWidget {
-  const BigCard({super.key, required this.pair});
+  const BigCard({
+    super.key,
+    required this.pair,
+  });
 
   final WordPair pair;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    // ↓ Add this.
     final style = theme.textTheme.displayMedium!.copyWith(
       color: theme.colorScheme.onPrimary,
     );
@@ -163,7 +196,9 @@ class BigCard extends StatelessWidget {
     return Card(
       color: theme.colorScheme.primary,
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(8.0),
+        
+        // ↓ Make the following change.
         child: Text(
           pair.asLowerCase,
           style: style,
@@ -180,17 +215,17 @@ class FavoritesPage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     if (appState.favorites.isEmpty) {
-      return Center(child: Text('No favorites yet.'));
+      return Center(
+        child: Text('No favorites yet.'),
+      );
     }
 
     return ListView(
       children: [
         Padding(
           padding: const EdgeInsets.all(20),
-          child: Text(
-            'You have '
-            '${appState.favorites.length} favorites:',
-          ),
+          child: Text('You have '
+              '${appState.favorites.length} favorites:'),
         ),
         for (var pair in appState.favorites)
           ListTile(
