@@ -100,11 +100,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     destinations: [
                       NavigationRailDestination(
                         icon: Icon(Icons.home),
-                        label: Text('Home'),
+                        label: RumUserActionAnnotation(description: 'home',
+                        child: Text('Home'), ),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.favorite),
-                        label: Text('Favorites'),
+                        label: RumUserActionAnnotation(description: 'favorites',
+                        child: Text('Favorites')),
                       ),
                     ],
                     selectedIndex: selectedIndex,    // ← Change to this.
